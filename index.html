@@ -9,38 +9,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root{--text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);--text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);--text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;--font:'Noto Sans JP',sans-serif;--bg:#f7f6f2;--sf:#f9f8f5;--sf2:#fbfbf9;--dv:#dcd9d5;--bd:#d4d1ca;--tx:#28251d;--txm:#66645e;--txi:#f9f8f4;--pr:#01696f;--ok:#437a22;--wn:#964219;--bl:#006494;--sh0:0 1px 2px rgba(33,30,22,.06);--sh1:0 6px 20px rgba(33,30,22,.08)}
+    :root{--text-xs:clamp(.75rem,.7rem+.25vw,.875rem);--text-sm:clamp(.875rem,.8rem+.35vw,1rem);--text-base:clamp(1rem,.95rem+.25vw,1.125rem);--text-lg:clamp(1.125rem,1rem+.75vw,1.5rem);--text-xl:clamp(1.5rem,1.2rem+1.25vw,2.25rem);--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;--font:'Noto Sans JP',sans-serif;--bg:#f7f6f2;--sf:#f9f8f5;--sf2:#fbfbf9;--dv:#dcd9d5;--bd:#d4d1ca;--tx:#28251d;--txm:#66645e;--txi:#f9f8f4;--pr:#01696f;--ok:#437a22;--wn:#964219;--bl:#006494;--sh0:0 1px 2px rgba(33,30,22,.06);--sh1:0 6px 20px rgba(33,30,22,.08)}
     [data-theme=dark]{--bg:#171614;--sf:#1c1b19;--sf2:#201f1d;--dv:#262523;--bd:#393836;--tx:#e1dfdb;--txm:#aaa7a1;--txi:#2b2a28;--pr:#4f98a3;--ok:#6daa45;--wn:#bb653b;--bl:#5591c7}
-    *{box-sizing:border-box} body{margin:0;font-family:var(--font);font-size:var(--text-base);line-height:1.6;color:var(--tx);background:var(--bg)} button,input,select,textarea{font:inherit} button{cursor:pointer}
+    *{box-sizing:border-box}body{margin:0;font-family:var(--font);font-size:var(--text-base);line-height:1.6;color:var(--tx);background:var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer}
     .app{max-width:1280px;margin:auto;padding:var(--sp6)}
     .top{display:flex;justify-content:space-between;gap:var(--sp4);align-items:flex-start;flex-wrap:wrap}
-    .title h1{margin:0;font-size:var(--text-xl);line-height:1.15} .title p{margin:.5rem 0 0;color:var(--txm)}
+    .title h1{margin:0;font-size:var(--text-xl);line-height:1.15}.title p{margin:.5rem 0 0;color:var(--txm)}
     .acts{display:flex;gap:var(--sp3);flex-wrap:wrap}
-    .btn{border:1px solid transparent;border-radius:var(--r-md);padding:.75rem 1rem;background:var(--sf2);color:var(--tx);box-shadow:var(--sh0);transition:all .15s}
-    .btn:hover{transform:translateY(-1px);box-shadow:var(--sh1)}
-    .btn-p{background:var(--pr);color:var(--txi)} .btn-d{background:rgba(161,44,123,.12);color:#a12c7b;border:1px solid rgba(161,44,123,.2)}
-    .grid{display:grid;gap:var(--sp5)} .hero{grid-template-columns:1.4fr 1fr;margin-top:var(--sp5)}
+    .btn{border:1px solid transparent;border-radius:var(--r-md);padding:.75rem 1rem;background:var(--sf2);color:var(--tx);box-shadow:var(--sh0);transition:all .15s}.btn:hover{transform:translateY(-1px);box-shadow:var(--sh1)}
+    .btn-p{background:var(--pr);color:var(--txi)}.btn-d{background:rgba(161,44,123,.12);color:#a12c7b;border:1px solid rgba(161,44,123,.2)}
+    .grid{display:grid;gap:var(--sp5)}.hero{grid-template-columns:1.4fr 1fr;margin-top:var(--sp5)}
     .card{background:var(--sf);border:1px solid rgba(40,37,29,.1);border-radius:var(--r-xl);box-shadow:var(--sh0);padding:var(--sp5)}
-    h2{margin:0 0 .5rem;font-size:var(--text-lg)} .muted{color:var(--txm)}
+    h2{margin:0 0 .5rem;font-size:var(--text-lg)}.muted{color:var(--txm)}
     .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp4);margin-top:var(--sp5)}
     .kpi{padding:var(--sp5);background:var(--sf2);border-radius:var(--r-lg)}
-    .kpi .lbl{font-size:var(--text-xs);color:var(--txm)} .kpi .val{font-size:var(--text-xl);font-weight:800}
+    .kpi .lbl{font-size:var(--text-xs);color:var(--txm)}.kpi .val{font-size:var(--text-xl);font-weight:800}
+    .monthly-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp3);margin-top:var(--sp4)}
+    .mkpi{padding:var(--sp4);background:var(--sf2);border-radius:var(--r-lg);text-align:center}
+    .mkpi .ml{font-size:var(--text-xs);color:var(--txm)}.mkpi .mv{font-size:var(--text-lg);font-weight:800}
     .three{grid-template-columns:1fr 1fr 1fr;margin-top:var(--sp6)}
-    .two{grid-template-columns:1.15fr .85fr;margin-top:var(--sp6)} .sec{margin-top:var(--sp6)}
+    .two{grid-template-columns:1.15fr .85fr;margin-top:var(--sp6)}.sec{margin-top:var(--sp6)}
     table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
     th,td{text-align:left;padding:.8rem .75rem;border-bottom:1px solid var(--dv)}
     th{font-size:var(--text-xs);color:var(--txm)}
     .badge{display:inline-flex;padding:.3rem .6rem;border-radius:var(--r-full);font-size:var(--text-xs);font-weight:700}
-    .ok{background:rgba(67,122,34,.14);color:var(--ok)} .wn{background:rgba(150,66,25,.14);color:var(--wn)} .inf{background:rgba(0,100,148,.14);color:var(--bl)}
+    .ok{background:rgba(67,122,34,.14);color:var(--ok)}.wn{background:rgba(150,66,25,.14);color:var(--wn)}.inf{background:rgba(0,100,148,.14);color:var(--bl)}
     .form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp4)}
-    .fld{display:grid;gap:.5rem} .fld label{font-size:var(--text-sm);font-weight:700}
+    .fld{display:grid;gap:.5rem}.fld label{font-size:var(--text-sm);font-weight:700}
     .fld input,.fld select,.fld textarea{width:100%;padding:.85rem .9rem;border-radius:var(--r-md);border:1px solid var(--bd);background:var(--sf2);color:var(--tx)}
-    .fld textarea{min-height:100px} .s2{grid-column:span 2}
-    .chart{position:relative;min-height:280px}
-    .save-ind{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--text-xs);color:var(--ok);opacity:0;transition:opacity .3s}
-    .save-ind.show{opacity:1}
-    .toast{position:fixed;bottom:var(--sp6);right:var(--sp6);padding:.85rem 1.25rem;border-radius:var(--r-lg);background:var(--pr);color:var(--txi);font-size:var(--text-sm);box-shadow:var(--sh1);transform:translateY(100px);opacity:0;transition:all .3s;z-index:999}
-    .toast.show{transform:translateY(0);opacity:1}
+    .fld textarea{min-height:80px}.s2{grid-column:span 2}
+    .chart{position:relative;min-height:260px}
+    .save-ind{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--text-xs);color:var(--ok);opacity:0;transition:opacity .3s}.save-ind.show{opacity:1}
+    .toast{position:fixed;bottom:var(--sp6);right:var(--sp6);padding:.85rem 1.25rem;border-radius:var(--r-lg);background:var(--pr);color:var(--txi);font-size:var(--text-sm);box-shadow:var(--sh1);transform:translateY(100px);opacity:0;transition:all .3s;z-index:999}.toast.show{transform:translateY(0);opacity:1}
     .imp{display:flex;gap:var(--sp3);align-items:center;flex-wrap:wrap;padding:var(--sp4);background:var(--sf2);border-radius:var(--r-lg);border:2px dashed var(--bd)}
     .fn{margin-top:var(--sp6);padding:var(--sp4);border-radius:var(--r-lg);background:rgba(1,105,111,.07);color:var(--txm)}
     .sb{display:flex;align-items:center;gap:var(--sp3);padding:var(--sp3) var(--sp4);background:var(--sf2);border-radius:var(--r-lg);margin-bottom:var(--sp4);font-size:var(--text-xs);color:var(--txm)}
@@ -49,13 +49,25 @@
     .ev-table th,.ev-table td{padding:.5rem .6rem;border-bottom:1px solid var(--dv);text-align:left}
     .ev-table th{color:var(--txm)}
     .aim-card{background:var(--sf2);border-radius:var(--r-lg);padding:var(--sp4);margin-bottom:var(--sp3);border-left:4px solid var(--pr)}
-    .aim-card.s-high{border-left-color:var(--ok)} .aim-card.s-mid{border-left-color:var(--bl)} .aim-card.s-low{border-left-color:var(--wn)}
-    .aim-title{font-weight:800;font-size:var(--text-sm)} .aim-meta{font-size:var(--text-xs);color:var(--txm);margin-top:.2rem}
-    .rank-bar{display:flex;gap:.3rem;margin-top:var(--sp3)}
-    .rank-seg{height:8px;border-radius:4px;flex:1;background:var(--dv)}
-    .rank-seg.filled{background:var(--pr)}
+    .aim-card.s-high{border-left-color:var(--ok)}.aim-card.s-mid{border-left-color:var(--bl)}.aim-card.s-low{border-left-color:var(--wn)}
+    .aim-title{font-weight:800;font-size:var(--text-sm)}.aim-meta{font-size:var(--text-xs);color:var(--txm);margin-top:.2rem}
     .data-src{font-size:var(--text-xs);color:var(--txm);margin-top:var(--sp3);padding:var(--sp3);background:rgba(1,105,111,.05);border-radius:var(--r-md)}
-    @media(max-width:980px){.hero,.two,.three,.kpis,.form{grid-template-columns:1fr}.s2{grid-column:auto}}
+    /* ① ヒートマップ */
+    .heatmap{width:100%;border-collapse:collapse;font-size:var(--text-xs);margin-top:var(--sp3)}
+    .heatmap th,.heatmap td{padding:.4rem .5rem;border:1px solid var(--dv);text-align:center;min-width:48px}
+    .heatmap th{background:var(--sf2);color:var(--txm)}
+    .hm-5{background:rgba(1,105,111,.85);color:#fff;font-weight:800}
+    .hm-4{background:rgba(1,105,111,.6);color:#fff;font-weight:700}
+    .hm-3{background:rgba(1,105,111,.35);color:var(--tx)}
+    .hm-2{background:rgba(150,66,25,.25);color:var(--tx)}
+    .hm-1{background:rgba(150,66,25,.5);color:#fff}
+    .hm-0{background:var(--sf2);color:var(--txm)}
+    /* ② 末尾フィルター */
+    .tail-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp2);margin-top:var(--sp3)}
+    .tail-btn{padding:.5rem .3rem;border-radius:var(--r-md);border:1px solid var(--bd);background:var(--sf2);color:var(--txm);font-size:var(--text-xs);text-align:center;cursor:pointer;transition:all .15s}
+    .tail-btn.active{background:var(--pr);color:var(--txi);border-color:var(--pr);font-weight:700}
+    .tail-btn:hover{border-color:var(--pr)}
+    @media(max-width:980px){.hero,.two,.three,.kpis,.monthly-kpis,.form{grid-template-columns:1fr}.s2{grid-column:auto}}
   </style>
 </head>
 <body>
@@ -77,7 +89,7 @@
   <section class="grid hero">
     <article class="card">
       <h2>運用サマリー</h2>
-      <p class="muted">横浜駅歩役2分圏の実店舗データを基に期待値スコアを算出。朝に予想登録、閉店後に結果反映、週次で振り返る運用を想定。</p>
+      <p class="muted">横浜駅役2分圏の実店舗データを基に期待値スコアを算出。朝に予想登録、閉店後に結果反映、週次で振り返る運用を想定。</p>
       <div class="kpis">
         <div class="kpi"><div class="lbl">対象店舗</div><div class="val" id="stCnt">6</div></div>
         <div class="kpi"><div class="lbl">予想的中率</div><div class="val" id="hitRate">--</div></div>
@@ -91,6 +103,18 @@
     </aside>
   </section>
 
+  <!-- ④ 今月の成績サマリー -->
+  <section class="card sec">
+    <h2>④ 今月の成績サマリー <span id="monthLabel" style="font-size:var(--text-xs);color:var(--txm);font-weight:400"></span></h2>
+    <div class="monthly-kpis">
+      <div class="mkpi"><div class="ml">今月記録</div><div class="mv" id="mRec">0件</div></div>
+      <div class="mkpi"><div class="ml">今月的中率</div><div class="mv" id="mHit">--</div></div>
+      <div class="mkpi"><div class="ml">今月差枚合計</div><div class="mv" id="mDiff">0</div></div>
+      <div class="mkpi"><div class="ml">最大利益</div><div class="mv" id="mMax">--</div></div>
+      <div class="mkpi"><div class="ml">最大損失</div><div class="mv" id="mMin">--</div></div>
+    </div>
+  </section>
+
   <!-- 旧イベ分析 -->
   <section class="grid three sec">
     <article class="card">
@@ -102,7 +126,6 @@
           <tr><td><strong>25日</strong></td><td>7,263</td><td>2件</td><td><span class="badge ok">最強★★★</span></td></tr>
           <tr><td><strong>5日・15日</strong></td><td>6,887</td><td>各3件</td><td><span class="badge ok">強い★★</span></td></tr>
           <tr><td><strong>11日</strong></td><td>6,603</td><td>3件</td><td><span class="badge inf">安定★</span></td></tr>
-          <tr><td><strong>10日</strong></td><td>6,377</td><td>1件</td><td><span class="badge inf">安定★</span></td></tr>
           <tr><td>22日</td><td>6,328</td><td>3件</td><td><span class="badge inf">普通</span></td></tr>
           <tr><td>21日</td><td>6,231</td><td>3件</td><td><span class="badge inf">普通</span></td></tr>
           <tr><td>1日</td><td>6,066</td><td>3件</td><td><span class="badge inf">普通</span></td></tr>
@@ -138,11 +161,18 @@
     </article>
   </section>
 
-  <!-- FORM + CHART -->
+  <!-- ① 機種別ヒートマップ -->
+  <section class="card sec">
+    <h2>① 機種別ヒートマップ <span style="font-size:var(--text-xs);color:var(--txm);font-weight:400">記録が踏まれると自動色付き</span></h2>
+    <p class="muted" style="font-size:var(--text-xs);margin-bottom:var(--sp3)">緑あいほど差枚プラス、赤あいほどマイナス。記録件数が少ない間はコメントのみ表示。</p>
+    <div id="heatmapWrap"><p class="muted">記録を追加すると機種別ヒートマップが表示されます。</p></div>
+  </section>
+
+  <!-- ② 末尾フィルター + 記録フォーム -->
   <section class="grid two sec">
     <article class="card">
       <h2>予想と結果の記録</h2>
-      <div class="sb"><div class="sd"></div><span>入力データはブラウザに自動保存されます（localStorage）</span></div>
+      <div class="sb"><div class="sd"></div><span>入力データはブラウザに自動保存されます</span></div>
       <form id="predForm" class="form">
         <div class="fld"><label for="fDate">日付</label><input id="fDate" type="date" required></div>
         <div class="fld"><label for="fStore">店舗名</label><select id="fStore"></select></div>
@@ -158,9 +188,16 @@
       </form>
     </article>
     <article class="card">
-      <h2>予想と結果の推移</h2>
-      <div class="chart"><canvas id="accChart"></canvas></div>
-      <section class="card sec" style="margin-top:var(--sp4);padding:var(--sp4)">
+      <h2>② 末尾フィルター付き 記録一覧</h2>
+      <p class="muted" style="font-size:var(--text-xs);margin-bottom:var(--sp3)">末尾を選んでその台番の記録だけ表示。「全て」で全件表示。</p>
+      <div class="tail-grid" id="tailBtns"></div>
+      <div style="overflow-x:auto;margin-top:var(--sp3)">
+        <table>
+          <thead><tr><th>日付</th><th>店舗</th><th>機種</th><th>台番</th><th>結果</th><th>評価</th></tr></thead>
+          <tbody id="filteredTbl"></tbody>
+        </table>
+      </div>
+      <section style="margin-top:var(--sp4)">
         <h2 style="font-size:var(--text-sm)">CSVインポート</h2>
         <div class="imp" style="padding:var(--sp3)">
           <input type="file" id="csvIn" accept=".csv">
@@ -171,13 +208,17 @@
     </article>
   </section>
 
-  <!-- TABLE -->
+  <!-- 推移チャート -->
   <section class="card sec">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp4)">
-      <h2 style="margin:0">記録一覧</h2>
-    </div>
+    <h2>予想スコアと差枚の推移</h2>
+    <div class="chart" style="min-height:220px"><canvas id="accChart"></canvas></div>
+  </section>
+
+  <!-- 全件テーブル -->
+  <section class="card sec">
+    <h2>記録全件</h2>
     <table>
-      <thead><tr><th>日付</th><th>店舗</th><th>機種</th><th>台番</th><th>予想</th><th>結果差枚</th><th>評価</th><th>メモ</th></tr></thead>
+      <thead><tr><th>日付</th><th>店舗</th><th>機種</th><th>台番</th><th>予想</th><th>差枚</th><th>評価</th><th>メモ</th></tr></thead>
       <tbody id="predTbl"></tbody>
     </table>
     <div class="fn">データ出典：PIA横浜モアーズ旧イベ日分析 © min-repo.com 2023年実績。今後のデータ蓄積で精度向上予定。</div>
@@ -186,7 +227,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY='pachislot_v2';
+const KEY='pachislot_v3';
 const STORES=[
   {name:'123横浜西口店',area:'横浜駅2分',slots:344,event:'7のつく日・月末金曜',priority:'高',score:88},
   {name:'PIA横浜モアーズ',area:'横浜駅4分',slots:406,event:'5・15・25日が最強',priority:'高',score:85},
@@ -195,54 +236,96 @@ const STORES=[
   {name:'横浜ポパイ',area:'横浜駅2分',slots:0,event:'要調査',priority:'低',score:58},
   {name:'King EX横浜',area:'横浜駅2分',slots:0,event:'要調査',priority:'低',score:55}
 ];
-
-// PIA横浜モアーズ 旧イベ日スコアマップ（実績データ）
 const PIA_EVENT_SCORE={1:72,5:88,7:75,10:77,11:82,15:88,17:75,21:76,22:77,25:95,27:75};
-
 const SAMPLE=[
   {date:'2026-05-21',store:'123横浜西口店',machine:'北斗の拳',seat:'512',predictedScore:85,actualDiff:1850,memo:'旧イベ+角2並び'},
   {date:'2026-05-22',store:'PIA横浜モアーズ',machine:'ゴージャグ',seat:'318',predictedScore:78,actualDiff:420,memo:'前日凹み・REG良好'},
   {date:'2026-05-23',store:'Super Slot Club Z',machine:'モンキー',seat:'221',predictedScore:72,actualDiff:-850,memo:'機種寄せ想定'},
-  {date:'2026-05-27',store:'123横浜西口店',machine:'マイジャグ',seat:'615',predictedScore:88,actualDiff:1320,memo:'本命据え置き狙い'}
+  {date:'2026-05-27',store:'123横浜西口店',machine:'マイジャグ',seat:'615',predictedScore:88,actualDiff:1320,memo:'据え置き狙い'}
 ];
-let preds=[], sChart, aChart;
+let preds=[], sChart, aChart, activeTail='all';
 
-function save(){try{localStorage.setItem(KEY,JSON.stringify(preds));const i=document.getElementById('saveInd');i.classList.add('show');setTimeout(()=>i.classList.remove('show'),2000);}catch(e){toast('保存失敗: '+e.message);}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(preds));const i=document.getElementById('saveInd');i.classList.add('show');setTimeout(()=>i.classList.remove('show'),2000);}catch(e){toast('保存失敗');}}
 function load(){try{const r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch{return null;}}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);}
 function badge(v){const n=Number(v);if(n>=1000)return '<span class="badge ok">的中</span>';if(n>=0)return '<span class="badge inf">準的中</span>';return '<span class="badge wn">外れ</span>';}
+function seatTail(seat){const s=String(seat).replace(/[^0-9]/g,'');return s?s.slice(-1):'?';}
 
-function renderToday(){
-  const now=new Date();
-  const d=now.getDate(), m=now.getMonth()+1;
-  document.getElementById('todayDate').textContent=`${m}/${d}`;
-  const aims=[];
-  // PIA判定
-  const piaScore=PIA_EVENT_SCORE[d];
-  if(piaScore){
-    const rank=piaScore>=88?'s-high':piaScore>=77?'s-mid':'s-low';
-    const stars=piaScore>=88?'★★★':piaScore>=82?'★★':'★';
-    aims.push(`<div class="aim-card ${rank}"><div class="aim-title">PIA横浜モアーズ ${stars}</div><div class="aim-meta">スコア ${piaScore} / 実績平均G: ${d===25?'7,263':d===5||d===15?'6,887':d===11?'6,603':'6,200+'}G</div></div>`);
-  }
-  // 123判定（7のつく日）
-  if(String(d).includes('7')||d===7||d===17||d===27){
-    aims.push(`<div class="aim-card s-mid"><div class="aim-title">123横浜西口店 ★</div><div class="aim-meta">7のつく日 – 主力機種の全台系に注目</div></div>`);
-  }
-  // Super Slot Club Z（1日）
-  if(d===1){
-    aims.push(`<div class="aim-card s-mid"><div class="aim-title">Super Slot Club Z ★</div><div class="aim-meta">毎月1日 – 旧イベ候補日</div></div>`);
-  }
-  if(!aims.length){
-    aims.push(`<div class="aim-card"><div class="aim-title">本日は主要旧イベ日ではありません</div><div class="aim-meta">通常営業日。前日凹み台・据え置き狙いで判断してください。</div></div>`);
-  }
-  document.getElementById('todayAim').innerHTML=aims.join('');
+// ① 機種別ヒートマップ
+function renderHeatmap(){
+  const wrap=document.getElementById('heatmapWrap');
+  if(!preds.length){wrap.innerHTML='<p class="muted">記録を追加すると機種別ヒートマップが表示されます。</p>';return;}
+  const machines=[...new Set(preds.map(p=>p.machine))].slice(0,12);
+  const stores=[...new Set(preds.map(p=>p.store))];
+  let html='<div style="overflow-x:auto"><table class="heatmap"><thead><tr><th>機種</th>';
+  stores.forEach(s=>html+=`<th>${s.replace('横浜','').replace('店','')}</th>`);
+  html+='<th>合計</th></tr></thead><tbody>';
+  machines.forEach(m=>{
+    html+=`<tr><td><strong>${m}</strong></td>`;
+    let total=0,totalN=0;
+    stores.forEach(s=>{
+      const rows=preds.filter(p=>p.machine===m&&p.store===s);
+      if(!rows.length){html+='<td class="hm-0">-</td>';return;}
+      const avg=rows.reduce((a,b)=>a+Number(b.actualDiff),0)/rows.length;
+      total+=rows.reduce((a,b)=>a+Number(b.actualDiff),0);totalN+=rows.length;
+      const cls=avg>=1500?'hm-5':avg>=500?'hm-4':avg>=0?'hm-3':avg>=-500?'hm-2':'hm-1';
+      html+=`<td class="${cls}">${avg>=0?'+':''}${Math.round(avg/100)*100}<br><small>${rows.length}件</small></td>`;
+    });
+    const tavg=totalN?total/totalN:0;
+    const tc=tavg>=1500?'hm-5':tavg>=500?'hm-4':tavg>=0?'hm-3':tavg>=-500?'hm-2':'hm-1';
+    html+=`<td class="${tc}"><strong>${tavg>=0?'+':''}${Math.round(tavg/100)*100}</strong></td></tr>`;
+  });
+  html+='</tbody></table></div>';
+  wrap.innerHTML=html;
 }
 
+// ② 末尾フィルター
+function renderTailBtns(){
+  const tails=['all','0','1','2','3','4','5','6','7','8','9'];
+  document.getElementById('tailBtns').innerHTML=tails.map(t=>
+    `<button class="tail-btn${activeTail===t?' active':''}" data-tail="${t}">${t==='all'?'全て':'末尾'+t}</button>`
+  ).join('');
+  document.querySelectorAll('.tail-btn').forEach(b=>b.onclick=()=>{activeTail=b.dataset.tail;renderTailBtns();renderFiltered();});
+}
+function renderFiltered(){
+  const rows=activeTail==='all'?preds:preds.filter(p=>seatTail(p.seat)===activeTail);
+  document.getElementById('filteredTbl').innerHTML=rows.slice().reverse().map(p=>
+    `<tr><td>${p.date}</td><td style="font-size:var(--text-xs)">${p.store}</td><td>${p.machine}</td><td>${p.seat}</td>
+    <td>${Number(p.actualDiff).toLocaleString()}</td><td>${badge(p.actualDiff)}</td></tr>`
+  ).join('')||`<tr><td colspan="6" style="color:var(--txm);text-align:center">末尾${activeTail}の記録はありません</td></tr>`;
+}
+
+// ④ 今月サマリー
+function renderMonthly(){
+  const now=new Date();
+  const ym=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  document.getElementById('monthLabel').textContent=`${now.getFullYear()}年${now.getMonth()+1}月`;
+  const mp=preds.filter(p=>p.date.startsWith(ym));
+  const hit=mp.filter(p=>Number(p.actualDiff)>=1000).length;
+  const diffs=mp.map(p=>Number(p.actualDiff));
+  document.getElementById('mRec').textContent=mp.length+'件';
+  document.getElementById('mHit').textContent=mp.length?`${Math.round(hit/mp.length*100)}%`:'--';
+  document.getElementById('mDiff').textContent=mp.length?(diffs.reduce((a,b)=>a+b,0)).toLocaleString()+'':0;
+  document.getElementById('mMax').textContent=diffs.length?Math.max(...diffs).toLocaleString():'--';
+  document.getElementById('mMin').textContent=diffs.length?Math.min(...diffs).toLocaleString():'--';
+}
+
+function renderToday(){
+  const now=new Date(),d=now.getDate(),m=now.getMonth()+1;
+  document.getElementById('todayDate').textContent=`${m}/${d}`;
+  const aims=[];
+  const piaScore=PIA_EVENT_SCORE[d];
+  if(piaScore){const rank=piaScore>=88?'s-high':piaScore>=77?'s-mid':'s-low';const stars=piaScore>=88?'★★★':piaScore>=82?'★★':'★';
+    aims.push(`<div class="aim-card ${rank}"><div class="aim-title">PIA横浜モアーズ ${stars}</div><div class="aim-meta">スコア${piaScore} / 実績平均G:${d===25?'7,263':d===5||d===15?'6,887':d===11?'6,603':'6,200+'}G</div></div>`);}
+  if(String(d).includes('7')||d===7||d===17||d===27)aims.push(`<div class="aim-card s-mid"><div class="aim-title">123横浜西口店 ★</div><div class="aim-meta">7のつく日―主力機種の全台系に注目</div></div>`);
+  if(d===1)aims.push(`<div class="aim-card s-mid"><div class="aim-title">Super Slot Club Z ★</div><div class="aim-meta">毎月1日旧イベ候補日</div></div>`);
+  if(!aims.length)aims.push(`<div class="aim-card"><div class="aim-title">本日は主要旧イベ日ではありません</div><div class="aim-meta">前日凹み台・据え置き狙いで判断してください。</div></div>`);
+  document.getElementById('todayAim').innerHTML=aims.join('');
+}
 function renderStores(){
   document.getElementById('storeTbl').innerHTML=STORES.map(s=>
     `<tr><td style="font-size:var(--text-xs)"><strong>${s.name}</strong></td><td style="font-size:var(--text-xs)">${s.area}</td>
-    <td><span class="badge ${s.priority==='高'?'ok':s.priority==='中'?'inf':'wn'}">${s.priority}</span></td></tr>`
-  ).join('');
+    <td><span class="badge ${s.priority==='高'?'ok':s.priority==='中'?'inf':'wn'}">${s.priority}</span></td></tr>`).join('');
   document.getElementById('fStore').innerHTML=STORES.map(s=>`<option value="${s.name}">${s.name}</option>`).join('');
   document.getElementById('stCnt').textContent=STORES.length;
 }
@@ -250,8 +333,7 @@ function renderPreds(){
   document.getElementById('predTbl').innerHTML=preds.slice().reverse().map(p=>
     `<tr><td>${p.date}</td><td>${p.store}</td><td>${p.machine}</td><td>${p.seat}</td>
     <td>${p.predictedScore}</td><td>${Number(p.actualDiff).toLocaleString()}</td>
-    <td>${badge(p.actualDiff)}</td><td style="max-width:180px;font-size:var(--text-xs);color:var(--txm)">${p.memo||''}</td></tr>`
-  ).join('');
+    <td>${badge(p.actualDiff)}</td><td style="max-width:160px;font-size:var(--text-xs);color:var(--txm)">${p.memo||''}</td></tr>`).join('');
   const hit=preds.filter(p=>Number(p.actualDiff)>=1000).length;
   document.getElementById('hitRate').textContent=preds.length?`${Math.round(hit/preds.length*100)}%`:'--';
   document.getElementById('avgScore').textContent=preds.length?(preds.reduce((a,b)=>a+Number(b.predictedScore),0)/preds.length).toFixed(1):'--';
@@ -259,91 +341,38 @@ function renderPreds(){
 }
 function drawStore(){
   if(sChart)sChart.destroy();
-  sChart=new Chart(document.getElementById('storeChart'),{
-    type:'bar',
-    data:{labels:STORES.map(s=>s.name.replace('横浜','').replace('店','')),datasets:[{label:'期待値スコア',data:STORES.map(s=>s.score),
-      backgroundColor:STORES.map(s=>s.score>=80?'#01696f':s.score>=70?'#5591c7':'#bb653b'),borderRadius:8}]},
-    options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:100}}}
-  });
+  sChart=new Chart(document.getElementById('storeChart'),{type:'bar',
+    data:{labels:STORES.map(s=>s.name.replace('横浜','').replace('店','')),datasets:[{label:'スコア',data:STORES.map(s=>s.score),backgroundColor:STORES.map(s=>s.score>=80?'#01696f':s.score>=70?'#5591c7':'#bb653b'),borderRadius:8}]},
+    options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:100}}}});
 }
 function drawAcc(){
   if(aChart)aChart.destroy();
   if(!preds.length)return;
   const s=preds.slice().sort((a,b)=>a.date.localeCompare(b.date));
-  aChart=new Chart(document.getElementById('accChart'),{
-    type:'line',
+  aChart=new Chart(document.getElementById('accChart'),{type:'line',
     data:{labels:s.map(p=>p.date),datasets:[
       {label:'予想スコア',data:s.map(p=>p.predictedScore),borderColor:'#01696f',backgroundColor:'rgba(1,105,111,.12)',fill:true,tension:.35},
-      {label:'結果差枚÷50',data:s.map(p=>Math.round(Number(p.actualDiff)/50)),borderColor:'#964219',fill:false,tension:.35}
-    ]},
-    options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
-  });
+      {label:'差枚÷50',data:s.map(p=>Math.round(Number(p.actualDiff)/50)),borderColor:'#964219',fill:false,tension:.35}]},
+    options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
 }
-function dlCsv(name,rows){
-  const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');
-  const b=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href);
-}
-function parseCsv(t){
-  const lines=t.trim().split('\n').filter(l=>l.trim());
-  if(lines.length<2)return[];
-  const hd=lines[0].split(',').map(h=>h.replace(/"/g,'').trim());
-  return lines.slice(1).map(l=>{
-    const v=(l.match(/(?:"([^"]*)"|([^,]*))/g)||[]).map(x=>x.replace(/^"|"$/g,''));
-    const o={};hd.forEach((h,i)=>o[h]=v[i]||'');return o;
-  }).filter(o=>o.date&&o.store);
-}
+function dlCsv(name,rows){const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');const b=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href);}
+function parseCsv(t){const lines=t.trim().split('\n').filter(l=>l.trim());if(lines.length<2)return[];const hd=lines[0].split(',').map(h=>h.replace(/"/g,'').trim());return lines.slice(1).map(l=>{const v=(l.match(/(?:"([^"]*)"|([^,]*))/g)||[]).map(x=>x.replace(/^"|"$/g,''));const o={};hd.forEach((h,i)=>o[h]=v[i]||'');return o;}).filter(o=>o.date&&o.store);}
+function refreshAll(){renderPreds();renderFiltered();renderHeatmap();renderMonthly();drawAcc();}
 
-document.getElementById('dlTpl').onclick=()=>{dlCsv('pachislot-template.csv',[['date','store','machine','seat','predictedScore','actualDiff','memo'],['2026-05-28','123横浜西口店','マイジャグ','601','80','0','朝の予想']]);toast('テンプレートを出力しました');};
-document.getElementById('expAll').onclick=()=>{
-  if(!preds.length){toast('記録がありません');return;}
-  dlCsv(`pachislot-${new Date().toISOString().slice(0,10)}.csv`,[['date','store','machine','seat','predictedScore','actualDiff','memo'],...preds.map(p=>[p.date,p.store,p.machine,p.seat,p.predictedScore,p.actualDiff,p.memo||''])]);
-  toast('全件エクスポートしました');
-};
-document.getElementById('impBtn').onclick=()=>{
-  const f=document.getElementById('csvIn').files[0];
-  if(!f){toast('ファイルを選択してください');return;}
-  const r=new FileReader();
-  r.onload=e=>{
-    const p=parseCsv(e.target.result);
-    if(!p.length){toast('読み込めるデータがありませんでした');return;}
-    const added=p.filter(x=>!preds.some(q=>q.date===x.date&&q.store===x.store&&q.seat===x.seat));
-    preds.push(...added);preds.sort((a,b)=>a.date.localeCompare(b.date));
-    save();renderPreds();drawAcc();
-    document.getElementById('impSt').textContent=`${added.length}件追記`;
-    toast(`${added.length}件取り込みました`);
-  };r.readAsText(f,'UTF-8');
-};
-document.getElementById('predForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const row={date:fDate.value,store:fStore.value,machine:fMachine.value,seat:fSeat.value,predictedScore:Number(fScore.value),actualDiff:Number(fDiff.value),memo:fMemo.value};
-  preds.push(row);preds.sort((a,b)=>a.date.localeCompare(b.date));
-  save();renderPreds();drawAcc();e.target.reset();
-  fScore.value=70;fDate.value=new Date().toISOString().slice(0,10);
-  toast('記録を追加しました');
-});
-document.getElementById('smpBtn').onclick=()=>{
-  if(preds.length&&!confirm('サンプルデータを追記しますか？'))return;
-  preds.push(...SAMPLE.filter(s=>!preds.some(p=>p.date===s.date&&p.store===s.store&&p.seat===s.seat)));
-  preds.sort((a,b)=>a.date.localeCompare(b.date));
-  save();renderPreds();drawAcc();toast('サンプルデータを読み込みました');
-};
-document.getElementById('clrBtn').onclick=()=>{
-  if(!confirm('すべての記録を削除しますか？元に戻せません。'))return;
-  preds=[];localStorage.removeItem(KEY);renderPreds();drawAcc();toast('データを全削除しました');
-};
-document.getElementById('themeBtn').onclick=()=>{
-  const r=document.documentElement,next=r.getAttribute('data-theme')==='dark'?'light':'dark';
-  r.setAttribute('data-theme',next);
-  document.getElementById('themeBtn').textContent=next==='dark'?'ライトモード':'ダークモード';
-};
+document.getElementById('dlTpl').onclick=()=>{dlCsv('pachislot-template.csv',[['date','store','machine','seat','predictedScore','actualDiff','memo'],['2026-05-28','123横浜西口店','マイジャグ','601','80','0','朝の予想']]);toast('テンプレート出力');}
+document.getElementById('expAll').onclick=()=>{if(!preds.length){toast('記録がありません');return;}dlCsv(`pachislot-${new Date().toISOString().slice(0,10)}.csv`,[['date','store','machine','seat','predictedScore','actualDiff','memo'],...preds.map(p=>[p.date,p.store,p.machine,p.seat,p.predictedScore,p.actualDiff,p.memo||''])]);toast('全件エクスポート');}
+document.getElementById('impBtn').onclick=()=>{const f=document.getElementById('csvIn').files[0];if(!f){toast('ファイルを選択してください');return;}const r=new FileReader();r.onload=e=>{const p=parseCsv(e.target.result);if(!p.length){toast('データなし');return;}const added=p.filter(x=>!preds.some(q=>q.date===x.date&&q.store===x.store&&q.seat===x.seat));preds.push(...added);preds.sort((a,b)=>a.date.localeCompare(b.date));save();refreshAll();document.getElementById('impSt').textContent=`${added.length}件追記`;toast(`${added.length}件取り込み`);};r.readAsText(f,'UTF-8');}
+document.getElementById('predForm').addEventListener('submit',e=>{e.preventDefault();const row={date:fDate.value,store:fStore.value,machine:fMachine.value,seat:fSeat.value,predictedScore:Number(fScore.value),actualDiff:Number(fDiff.value),memo:fMemo.value};preds.push(row);preds.sort((a,b)=>a.date.localeCompare(b.date));save();refreshAll();e.target.reset();fScore.value=70;fDate.value=new Date().toISOString().slice(0,10);toast('記録を追加しました');});
+document.getElementById('smpBtn').onclick=()=>{if(preds.length&&!confirm('サンプルデータを追記しますか？'))return;preds.push(...SAMPLE.filter(s=>!preds.some(p=>p.date===s.date&&p.store===s.store&&p.seat===s.seat)));preds.sort((a,b)=>a.date.localeCompare(b.date));save();refreshAll();toast('サンプルデータ読み込み');}
+document.getElementById('clrBtn').onclick=()=>{if(!confirm('全削除しますか？'))return;preds=[];localStorage.removeItem(KEY);refreshAll();toast('全削除しました');}
+document.getElementById('themeBtn').onclick=()=>{const r=document.documentElement,next=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',next);document.getElementById('themeBtn').textContent=next==='dark'?'ライトモード':'ダークモード';}
 
 (function init(){
   document.getElementById('fDate').value=new Date().toISOString().slice(0,10);
-  renderToday();renderStores();drawStore();
+  renderToday();renderStores();drawStore();renderTailBtns();
   const s=load();
-  if(s&&s.length){preds=s;toast(`${s.length}件の保存データを復元しました`);}
-  renderPreds();drawAcc();
+  if(s&&s.length){preds=s;toast(`${s.length}件の保存データを復元`);}
+  refreshAll();
 })();
 </script>
 </body>
